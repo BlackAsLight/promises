@@ -1,6 +1,6 @@
 // deno-lint-ignore-file no-unsafe-finally
 // deno-lint-ignore no-explicit-any
-export async function promiseThreads<T>(input: T[], func: (x: T) => Promise<any>, threads: number): Promise<void> {
+export async function promiseManager<T>(input: T[], func: (x: T) => Promise<any>, threads: number): Promise<void> {
 	const wrap = async (x: T, i: number): Promise<number> => {
 		try { await func(x) }
 		catch (e) { console.error(e) }
